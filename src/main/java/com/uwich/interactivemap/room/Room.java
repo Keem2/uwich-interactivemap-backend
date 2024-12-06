@@ -24,7 +24,7 @@ public class Room {
     private Integer id;
 
     @Column (name = "building_id")
-    private Integer building_id;
+    private Integer buildingId;
 
     @Column (name = "name", columnDefinition = "TEXT", nullable = false)
     private String name;
@@ -38,5 +38,5 @@ public class Room {
     private Floor floor;
 
     @Column (name = "type_id")
-    private Integer type_id;
+    private Integer typeId;
 }
