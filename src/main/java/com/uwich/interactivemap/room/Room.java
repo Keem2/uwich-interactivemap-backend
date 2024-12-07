@@ -2,6 +2,7 @@ package com.uwich.interactivemap.room;
 
 import com.uwich.interactivemap.building.Building;
 import com.uwich.interactivemap.buildingType.buildingType;
+import com.uwich.interactivemap.roomPhoto.roomPhoto;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,6 +10,8 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.JdbcType;
 import org.hibernate.annotations.Type;
 import org.hibernate.dialect.PostgreSQLEnumJdbcType;
+
+import java.util.List;
 
 @Table (name = "room")
 @Data
@@ -39,4 +42,9 @@ public class Room {
 
     @Column (name = "type_id")
     private Integer typeId;
+
+    // establishing the relation on the ONE side of the one to many relation with room and room photo
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id")
+    private List<roomPhoto> roomPhoto;
 }
