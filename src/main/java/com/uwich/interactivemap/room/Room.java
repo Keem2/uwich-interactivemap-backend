@@ -1,14 +1,9 @@
 package com.uwich.interactivemap.room;
 
-import com.uwich.interactivemap.building.Building;
-import com.uwich.interactivemap.buildingType.buildingType;
 import com.uwich.interactivemap.roomPhoto.roomPhoto;
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.JdbcType;
-import org.hibernate.annotations.Type;
 import org.hibernate.dialect.PostgreSQLEnumJdbcType;
 
 import java.util.List;

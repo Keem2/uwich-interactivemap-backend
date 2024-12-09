@@ -1,4 +1,4 @@
-package com.uwich.interactivemap.buildingType;
+package com.uwich.interactivemap.type;
 
 import com.uwich.interactivemap.room.Room;
 import jakarta.persistence.*;
@@ -6,10 +6,10 @@ import lombok.Data;
 
 import java.util.List;
 
-@Table (name = "building_type")
+@Table (name = "type")
 @Data
 @Entity
-public class buildingType {
+public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")

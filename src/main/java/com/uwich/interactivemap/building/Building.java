@@ -1,6 +1,8 @@
 package com.uwich.interactivemap.building;
 
+import com.uwich.interactivemap.buildingPhoto.buildingPhoto;
 import com.uwich.interactivemap.room.Room;
+import com.uwich.interactivemap.roomPhoto.roomPhoto;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -31,5 +33,10 @@ public class Building {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "building_id")
     private List<Room> room;
+
+    // establishing the relation on the ONE side of the one to many relation with building and building photo
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "building_id")
+    private List<buildingPhoto> roomPhoto;
 
 }
