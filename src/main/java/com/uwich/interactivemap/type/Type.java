@@ -15,11 +15,7 @@ public class Type {
     @Column (name = "id")
     private Integer id;
 
-    @Column (name = "type", columnDefinition = "TEXT")
-    private String type;
+    @Column (name = "name", columnDefinition = "TEXT")
+    private String name;
 
-    // establishing the relation on the ONE side of the one to many relation with type and room
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_id")
-    private List<Room> room;
 }

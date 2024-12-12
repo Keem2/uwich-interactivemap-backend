@@ -1,6 +1,8 @@
 package com.uwich.interactivemap.room;
 
+import com.uwich.interactivemap.building.Building;
 import com.uwich.interactivemap.roomPhoto.roomPhoto;
+import com.uwich.interactivemap.type.Type;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.JdbcType;
@@ -35,8 +37,9 @@ public class Room {
     @Column (name = "floor")
     private Floor floor;
 
-    @Column (name = "type_id")
-    private Integer typeId;
+    @ManyToOne
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    private Type type;
 
     // establishing the relation on the ONE side of the one to many relation with room and room photo
     @OneToMany(cascade = CascadeType.ALL)
