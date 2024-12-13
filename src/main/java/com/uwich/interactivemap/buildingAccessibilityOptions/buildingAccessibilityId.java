@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class buildingAccessibilityId implements Serializable {
-    private Building buildingId;
+    private Building building;
 
-    private accessibilityOptions optionId;
+    private accessibilityOptions option;
 }
