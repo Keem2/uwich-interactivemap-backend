@@ -1,11 +1,15 @@
 package com.uwich.interactivemap.accessibilityOptions;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table (name = "accessibility_options")
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class accessibilityOptions {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

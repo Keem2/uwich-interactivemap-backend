@@ -4,12 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uwich.interactivemap.accessibilityOptions.accessibilityOptions;
 import com.uwich.interactivemap.building.Building;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table(name = "building_accessibility_options")
 @Entity
 @Data
 @IdClass(buildingAccessibilityId.class)
+@AllArgsConstructor
+@NoArgsConstructor
 public class buildingAccessibilityOptions {
     @JsonIgnore
     @Id

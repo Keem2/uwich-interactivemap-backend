@@ -1,15 +1,21 @@
 package com.uwich.interactivemap.building;
 
+import com.uwich.interactivemap.buildingAccessibilityOptions.buildingAccessibilityOptions;
 import com.uwich.interactivemap.buildingPhoto.buildingPhoto;
 import com.uwich.interactivemap.room.Room;
+import com.uwich.interactivemap.type.Type;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Table(name = "building")
 @Data
 @Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +34,11 @@ public class Building {
     @Column (name = "details", columnDefinition = "TEXT")
     private String details;
 
+    // establishing the relation on the MANY side of the one to many relation with building and type
+    @ManyToOne
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    private Type type;
+
     // establishing the relation on the ONE side of the one to many relation with building and room
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "building_id")
@@ -37,5 +48,10 @@ public class Building {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "building_id")
     private List<buildingPhoto> buildingPhoto;
+
+    // establishing the relation on the ONE side of the one to many relation with building and building access. options
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "building_id")
+    private List<buildingAccessibilityOptions> buildingAccessibilityOption;
 
 }
