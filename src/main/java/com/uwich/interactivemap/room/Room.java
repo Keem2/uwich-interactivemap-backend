@@ -1,14 +1,10 @@
 package com.uwich.interactivemap.room;
 
-import com.uwich.interactivemap.building.Building;
-import com.uwich.interactivemap.buildingAccessibilityOptions.buildingAccessibilityOptions;
 import com.uwich.interactivemap.roomAccessibilityOptions.roomAccessibilityOptions;
 import com.uwich.interactivemap.roomPhoto.roomPhoto;
 import com.uwich.interactivemap.type.Type;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.JdbcType;
 import org.hibernate.dialect.PostgreSQLEnumJdbcType;
 

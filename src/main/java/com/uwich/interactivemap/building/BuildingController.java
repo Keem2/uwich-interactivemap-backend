@@ -14,7 +14,7 @@ import java.util.List;
 public class BuildingController {
     private final BuildingService buildingService;
 
-    // endpoint to get all buildings (excludes their accessibility options)
+    // endpoint to get all buildings
     @GetMapping("/buildings")
     public ResponseEntity<List<Building>> getAllBuildings(){
         List<Building> buildingList = new ArrayList<>(buildingService.getAllBuildings());
@@ -22,7 +22,7 @@ public class BuildingController {
         return ResponseEntity.ok(buildingList);
     }
 
-    // endpoint to get specific building by id, including its accessibility options
+    // endpoint to get specific building by id
     @GetMapping("/building/{id}")
     public ResponseEntity<Building> getBuildingById(@PathVariable("id") Integer id){
         Building building = buildingService.getBuildingById(id);

@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 
 @Service
 @AllArgsConstructor
@@ -16,5 +18,11 @@ public class RoomService {
     public Room getRoomById(Integer id){
         return roomRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Room not found"));
+    }
+
+    // find room(s) in DB based on their name containing value in name param. if none, returns empty list
+    // Custom method
+    public List<Room> findRoomLikeName(String name){
+        return roomRepository.findLikeName(name);
     }
 }
