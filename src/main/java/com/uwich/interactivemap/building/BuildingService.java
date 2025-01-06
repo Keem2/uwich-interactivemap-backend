@@ -22,4 +22,10 @@ public class BuildingService {
         return buildingRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Building not found"));
     }
+
+    // find room(s) in DB based on their name containing value in name param. if none, returns empty list
+    // Custom method
+    public List<Building> findBuildingLikeName(String name){
+        return buildingRepository.findLikeName(name);
+    }
 }
