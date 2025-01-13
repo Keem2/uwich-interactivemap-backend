@@ -28,7 +28,7 @@ public class SearchController {
         List<Building> buildingList = buildingService.findBuildingLikeName(name);
         
         List<SearchResultDto> results = new ArrayList<>();
-        roomList.forEach(room -> results.add(new SearchResultDto("Room",room)));
+        roomList.forEach(room -> results.add(new SearchResultDto("Room",roomService.getRoomWithBuilding(room.getId()))));
         buildingList.forEach(building -> results.add(new SearchResultDto("Building",building)));
 
         return ResponseEntity.ok(results);

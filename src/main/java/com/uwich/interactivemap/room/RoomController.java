@@ -1,5 +1,6 @@
 package com.uwich.interactivemap.room;
 
+import com.uwich.interactivemap.dto.RoomBuildingSummaryDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +13,8 @@ public class RoomController {
     private final RoomService roomService;
 
     @GetMapping("/room/{id}")
-    public ResponseEntity<Room> getRoomById(@PathVariable("id") Integer id){
-        Room room = roomService.getRoomById(id);
+    public ResponseEntity<RoomBuildingSummaryDto> getRoomWithBuildingById(@PathVariable("id") Integer id){
+        RoomBuildingSummaryDto room = roomService.getRoomWithBuilding(id);
 
         return ResponseEntity.ok(room);
     }

@@ -1,10 +1,13 @@
 package com.uwich.interactivemap.room;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uwich.interactivemap.roomAccessibilityOptions.roomAccessibilityOptions;
 import com.uwich.interactivemap.roomPhoto.roomPhoto;
 import com.uwich.interactivemap.type.Type;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.JdbcType;
 import org.hibernate.dialect.PostgreSQLEnumJdbcType;
 
@@ -24,6 +27,7 @@ public class Room {
     @Column (name = "id")
     private Integer id;
 
+    @JsonIgnore
     @Column (name = "building_id")
     private Integer buildingId;
 

@@ -12,4 +12,6 @@ public interface BuildingRepository extends JpaRepository<Building, Integer> {
     // JPA method to query the building table where building name contains pattern provided in searchTerm
     @Query(value = "SELECT * FROM building WHERE name iLIKE %:searchTerm%", nativeQuery = true)
     List<Building> findLikeName(@Param("searchTerm") String searchTerm);
+
+    BuildingIdNameOnly findBuildingById(Integer id);
 }

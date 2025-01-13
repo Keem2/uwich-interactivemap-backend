@@ -28,4 +28,8 @@ public class BuildingService {
     public List<Building> findBuildingLikeName(String name){
         return buildingRepository.findLikeName(name);
     }
+
+    public BuildingIdNameOnly findBuildingById(Integer id){
+        return buildingRepository.findBuildingById(id);
+    }
 }
