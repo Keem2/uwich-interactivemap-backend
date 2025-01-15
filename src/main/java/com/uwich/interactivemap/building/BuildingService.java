@@ -1,6 +1,7 @@
 package com.uwich.interactivemap.building;
 
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,8 +14,9 @@ public class BuildingService {
     private final BuildingRepository buildingRepository;
 
     // get all buildings in DB. Built in JPA method
+    // sorted by name ascending
     public List<Building> getAllBuildings() {
-        return buildingRepository.findAll();
+        return buildingRepository.findAll(Sort.by(Sort.Direction.ASC,"name"));
     }
 
     // get building by ID from DB. If building does not exist, return 404
@@ -29,7 +31,13 @@ public class BuildingService {
         return buildingRepository.findLikeName(name);
     }
 
+    // get building by ID from DB. Only return its id and name
     public BuildingIdNameOnly findBuildingById(Integer id){
         return buildingRepository.findBuildingById(id);
+    }
+
+    // get buildings by their type from DB.
+    public List<Building> getBuildingsByTypeName(String typeName){
+        return buildingRepository.findByTypeName(typeName);
     }
 }
