@@ -1,5 +1,6 @@
 package com.uwich.interactivemap.building;
 
+import com.uwich.interactivemap.dto.SearchResultDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,10 +35,13 @@ public class BuildingController {
 
     // endpoint to get all buildings by type name
     @GetMapping("/building")
-    public ResponseEntity<List<Building>> getAllBuildingsByType(@RequestParam String type){
+    public ResponseEntity<List<SearchResultDto>> getAllBuildingsByType(@RequestParam String type){
         List<Building> buildingList = new ArrayList<>(buildingService.getBuildingsByTypeName(type));
 
-        return ResponseEntity.ok(buildingList);
+        List<SearchResultDto> results = new ArrayList<>();
+        buildingList.forEach(building -> results.add(new SearchResultDto("Building",building)));
+
+        return ResponseEntity.ok(results);
     }
 
 }
