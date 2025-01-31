@@ -2,10 +2,13 @@ package com.uwich.interactivemap.building;
 
 import com.uwich.interactivemap.buildingAccessibilityOptions.buildingAccessibilityOptions;
 import com.uwich.interactivemap.buildingPhoto.buildingPhoto;
+import com.uwich.interactivemap.geojson.GeoJSON;
 import com.uwich.interactivemap.room.Room;
 import com.uwich.interactivemap.type.Type;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.List;
 
@@ -25,14 +28,12 @@ public class Building {
     @Column (name = "name", columnDefinition = "TEXT")
     private String name;
 
-    @Column (name = "latitude")
-    private Double latitude;
-
-    @Column (name = "longitude")
-    private Double longitude;
-
     @Column (name = "details", columnDefinition = "TEXT")
     private String details;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column (name = "geojson", columnDefinition = "jsonb")
+    private GeoJSON geojson;
 
     // establishing the relation on the MANY side of the one to many relation with building and type
     @ManyToOne
