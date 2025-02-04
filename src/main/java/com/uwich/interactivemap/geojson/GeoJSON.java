@@ -12,6 +12,7 @@ public class GeoJSON {
     @lombok.Data
     static class Data {
         private String type;
+        private Properties properties;
         private Geometry geometry;
     }
 
@@ -19,5 +20,10 @@ public class GeoJSON {
     static class Geometry{
         private String type;
         private List<List<List<Double>>> coordinates;
+    }
+
+    @lombok.Data
+    static class Properties{
+        private String name;
     }
 }
