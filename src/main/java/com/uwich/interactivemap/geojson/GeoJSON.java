@@ -24,6 +24,7 @@ public class GeoJSON {
 
     @lombok.Data
     static class Properties{
+        private Integer id;
         private String name;
     }
 }
