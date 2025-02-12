@@ -1,7 +1,7 @@
 package com.uwich.interactivemap.room;
 
 import com.uwich.interactivemap.building.BuildingRepository;
-import com.uwich.interactivemap.building.BuildingIdNameOnly;
+import com.uwich.interactivemap.building.BuildingSummary;
 import com.uwich.interactivemap.dto.RoomBuildingSummaryDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -38,7 +38,7 @@ public class RoomService {
         Optional<Room> room = roomRepository.findById(id);
 
         if(room.isPresent()){
-            BuildingIdNameOnly building = buildingRepository.findBuildingById(room.get().getBuildingId());
+            BuildingSummary building = buildingRepository.findBuildingById(room.get().getBuildingId());
             return new RoomBuildingSummaryDto(room.get().getId(),room.get().getName(),room.get().getDetails(),room.get().getFloor(),room.get().getType(),room.get().getRoomPhoto(),room.get().getRoomAccessibilityOption()
             ,building);
         } else {

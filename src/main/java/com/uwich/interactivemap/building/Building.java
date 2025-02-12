@@ -28,6 +28,12 @@ public class Building {
     @Column (name = "name", columnDefinition = "TEXT")
     private String name;
 
+    @Column (name = "latitude")
+    private Double latitude;
+
+    @Column (name = "longitude")
+    private Double longitude;
+
     @Column (name = "details", columnDefinition = "TEXT")
     private String details;
 

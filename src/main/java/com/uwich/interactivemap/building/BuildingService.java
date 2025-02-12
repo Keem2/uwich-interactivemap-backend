@@ -32,7 +32,7 @@ public class BuildingService {
     }
 
     // get building by ID from DB. Only return its id and name
-    public BuildingIdNameOnly findBuildingById(Integer id){
+    public BuildingSummary findBuildingById(Integer id){
         return buildingRepository.findBuildingById(id);
     }
 

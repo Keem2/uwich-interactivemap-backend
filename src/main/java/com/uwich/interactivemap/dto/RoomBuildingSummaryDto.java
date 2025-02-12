@@ -1,6 +1,6 @@
 package com.uwich.interactivemap.dto;
 
-import com.uwich.interactivemap.building.BuildingIdNameOnly;
+import com.uwich.interactivemap.building.BuildingSummary;
 import com.uwich.interactivemap.room.Room;
 import com.uwich.interactivemap.roomAccessibilityOptions.roomAccessibilityOptions;
 import com.uwich.interactivemap.roomPhoto.roomPhoto;
@@ -28,5 +28,5 @@ public class RoomBuildingSummaryDto {
 
     private List<roomAccessibilityOptions> roomAccessibilityOption;
 
-    private BuildingIdNameOnly building;
+    private BuildingSummary building;
 }
