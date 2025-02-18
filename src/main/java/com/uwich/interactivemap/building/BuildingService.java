@@ -32,12 +32,12 @@ public class BuildingService {
     }
 
     // get building by ID from DB. Only return its id and name
-    public BuildingSummary findBuildingById(Integer id){
-        return buildingRepository.findBuildingById(id);
+    public BuildingSummary getBuildingSummaryById(Integer id){
+        return buildingRepository.findBuildingSummaryById(id);
     }
 
     // get buildings by their type from DB.
-    public List<Building> getBuildingsByTypeName(String typeName){
+    public List<Building> getBuildingByTypeName(String typeName){
         return buildingRepository.findByTypeName(typeName);
     }
 }

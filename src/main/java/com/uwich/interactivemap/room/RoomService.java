@@ -31,6 +31,11 @@ public class RoomService {
         return roomRepository.findLikeName(name);
     }
 
+    // get buildings by their type from DB.
+    public List<Room> getRoomByTypeName(String typeName){
+        return roomRepository.findByTypeName(typeName);
+    }
+
     // find room in DB based on its ID. Then add building details associated with that room. Return object with room and its building
     // if no room exists, throws 404
     //
@@ -38,7 +43,7 @@ public class RoomService {
         Optional<Room> room = roomRepository.findById(id);
 
         if(room.isPresent()){
-            BuildingSummary building = buildingRepository.findBuildingById(room.get().getBuildingId());
+            BuildingSummary building = buildingRepository.findBuildingSummaryById(room.get().getBuildingId());
             return new RoomBuildingSummaryDto(room.get().getId(),room.get().getName(),room.get().getDetails(),room.get().getFloor(),room.get().getType(),room.get().getRoomPhoto(),room.get().getRoomAccessibilityOption()
             ,building);
         } else {

@@ -15,7 +15,7 @@ public interface BuildingRepository extends JpaRepository<Building, Integer> {
     List<Building> findLikeName(@Param("searchTerm") String searchTerm);
 
     // JPA method to find a building by its id and return its id and name only
-    BuildingSummary findBuildingById(Integer id);
+    BuildingSummary findBuildingSummaryById(Integer id);
 
     // JPA method to get buildings by their type's name
     List<Building> findByTypeName(String typeName);

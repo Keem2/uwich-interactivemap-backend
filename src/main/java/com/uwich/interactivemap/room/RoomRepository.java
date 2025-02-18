@@ -12,4 +12,7 @@ public interface RoomRepository extends JpaRepository <Room, Integer> {
     // JPA method to query the room table where room name contains pattern provided in searchTerm
     @Query(value = "SELECT * FROM room WHERE name iLIKE :searchTerm%", nativeQuery = true)
     List<Room> findLikeName(@Param("searchTerm") String searchTerm);
+
+    // JPA method to get rooms by their type's name
+    List<Room> findByTypeName(String typeName);
 }

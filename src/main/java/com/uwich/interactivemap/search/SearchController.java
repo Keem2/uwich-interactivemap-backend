@@ -8,6 +8,7 @@ import com.uwich.interactivemap.room.RoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,19 @@ public class SearchController {
         
         List<SearchResultDto> results = new ArrayList<>();
         roomList.forEach(room -> results.add(new SearchResultDto("Room",roomService.getRoomWithBuilding(room.getId()))));
+        buildingList.forEach(building -> results.add(new SearchResultDto("Building",building)));
+
+        return ResponseEntity.ok(results);
+    }
+
+    // endpoint to get all buildings and rooms by type name
+    @GetMapping("/search/type/{type}")
+    public ResponseEntity<List<SearchResultDto>> findRoomsAndBuildingsByType(@PathVariable("type") String type){
+        List<Room> roomList = new ArrayList<>(roomService.getRoomByTypeName(type));
+        List<Building> buildingList = new ArrayList<>(buildingService.getBuildingByTypeName(type));
+
+        List<SearchResultDto> results = new ArrayList<>();
+        roomList.forEach(room -> results.add(new SearchResultDto("Room",room)));
         buildingList.forEach(building -> results.add(new SearchResultDto("Building",building)));
 
         return ResponseEntity.ok(results);
