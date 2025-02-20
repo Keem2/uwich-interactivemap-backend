@@ -34,6 +34,12 @@ public class Room {
     @Column (name = "name", columnDefinition = "TEXT", nullable = false)
     private String name;
 
+    @Column (name = "latitude")
+    private Double latitude;
+
+    @Column (name = "longitude")
+    private Double longitude;
+
     @Column (name = "details", columnDefinition = "TEXT")
     private String details;
 
